@@ -1,0 +1,58 @@
+﻿@model CreateMailDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Mail Sayfası</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Mail Gönderme Sayfası</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="receivermail">Alıcı Mail Adresi</label>
+                                <input type="text" class="form-control" asp-for="ReceiverMail" id="receivermail">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="subject">Konu</label>
+                                <input type="text" class="form-control" asp-for="Subject" id="subject">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="body">Mesajınız</label>
+                                <textarea rows="5" asp-for="Body" id="body" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <button class="btn btn-success">Maili Gönder</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* TextEditör için kullanılan script kodları *@
+<script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('body', {
+        removePlugins: 'elementspath',  // Alt kısımda görünen "body > p" kalkar
+        resize_enabled: false // Sağ alttaki boyutlandırma özelliğini kaldırır
+    });
+</script>
+
+
+
+
+
+
